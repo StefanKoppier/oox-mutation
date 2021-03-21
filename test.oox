@@ -1,0 +1,14 @@
+class Main
+{
+    static void main(int[] a, int[] b)
+        requires(a!=null && #a>1 && b!=null && #b>0)
+    {
+        int index := 0;
+
+        while (index < #b) {
+            a[index] := b[index];
+        }
+
+        assert forall i, aV : a : forall j, bV : b : i == j ==> aV == bV;
+    }
+}
